@@ -265,11 +265,11 @@
 }
 
 .friendAvatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 2px;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
     object-fit: cover;
-    border: 1px solid #C5D7EF;
+    border: 2px solid #C5D7EF;
 }
 
 .friendName {
@@ -301,11 +301,11 @@
 }
 
 .communityIcon {
-    width: 30px;
-    height: 30px;
-    border-radius: 2px;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px;
     object-fit: cover;
-    border: 1px solid #C5D7EF;
+    border: 2px solid #C5D7EF;
 }
 
 .communityName {

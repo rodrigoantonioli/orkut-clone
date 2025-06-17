@@ -36,10 +36,10 @@ const MainLayout = () => {
 
   const fetchCommunities = async () => {
     try {
-      const response = await fetch('/api/communities');
+      const response = await fetch(`/api/communities/user/${user._id}`);
       if (response.ok) {
         const data = await response.json();
-        setCommunities(data.communities?.slice(0, 6) || []); // Mostrar apenas 6 comunidades
+        setCommunities(data.slice(0, 6) || []); // Mostrar apenas 6 comunidades do usuário
       }
     } catch (error) {
       console.error('Erro ao buscar comunidades:', error);

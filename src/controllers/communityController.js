@@ -282,6 +282,37 @@ const getMyCommunities = async (req, res) => {
   }
 };
 
+// @desc    Obter comunidades de um usuário específico
+// @route   GET /api/communities/user/:id
+// @access  Public
+const getUserCommunities = async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+      return res.status(400).json({ message: 'ID de usuário inválido' });
+    }
+
+    const user = await User.findById(id)
+      .populate({
+        path: 'communities',
+        populate: {
+          path: 'creator',
+          select: 'name profilePicture'
+        }
+      });
+
+    if (!user) {
+      return res.status(404).json({ message: 'Usuário não encontrado' });
+    }
+
+    res.json(user.communities || []);
+  } catch (error) {
+    console.error('Erro ao buscar comunidades do usuário:', error);
+    res.status(500).json({ message: 'Erro ao buscar comunidades do usuário', error: error.message });
+  }
+};
+
 module.exports = {
   createCommunity,
   getAllCommunities,
@@ -290,4 +321,5 @@ module.exports = {
   leaveCommunity,
   getCategories,
   getMyCommunities,
+  getUserCommunities,
 }; 

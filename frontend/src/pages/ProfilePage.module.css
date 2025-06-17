@@ -1,143 +1,140 @@
+.profilePage {
+  padding: 15px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 11px;
+}
+
 .profileGrid {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.leftColumn {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 10px;
 }
 
-.rightColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.profileBox {
-  background-color: #E8EEF7;
-  border-radius: 8px;
-  padding: 1.5rem;
+/* Cabeçalho do perfil */
+.profileHeader {
+  background: white;
+  border: 1px solid #C5D7EF;
+  border-radius: 5px;
+  padding: 20px;
   text-align: center;
-  border: 1px solid #C3CDE0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
 }
 
 .profilePicture {
-  width: 150px;
-  height: 150px;
-  border-radius: 8px;
+  width: 120px;
+  height: 120px;
+  border-radius: 5px;
   object-fit: cover;
-  border: 4px solid white;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid #C5D7EF;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .profileName {
-  font-size: 1.3rem;
+  font-size: 18px;
   font-weight: bold;
-  color: #154284;
-  margin: 0 0 0.5rem 0;
+  color: #6d84b4;
+  margin: 0 0 5px 0;
 }
 
 .profileEmail {
-  font-size: 0.9rem;
+  font-size: 11px;
   color: #666;
   margin: 0;
 }
 
-.infoBox {
-  background-color: white;
-  border: 1px solid #C3CDE0;
-  border-radius: 8px;
-  padding: 1.5rem;
+/* Seções do perfil */
+.profileSection {
+  background: white;
+  border: 1px solid #C5D7EF;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
 
-.infoBox h3 {
-  font-size: 1.1rem;
-  color: #3068B3;
-  margin: 0 0 1rem 0;
+.sectionHeader {
+  background: linear-gradient(to bottom, #6d84b4 0%, #5a6fa8 100%);
+  padding: 8px 12px;
+  border-bottom: 1px solid #C5D7EF;
+}
+
+.sectionTitle {
+  color: white;
+  font-size: 11px;
   font-weight: bold;
-  border-bottom: 1px solid #E8EEF7;
-  padding-bottom: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin: 0;
+  text-transform: lowercase;
 }
 
-.counter {
-  font-size: 0.9rem;
-  color: #666;
-  font-weight: normal;
+.sectionContent {
+  padding: 15px;
 }
 
+/* Estatísticas */
 .statsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 15px;
+  text-align: center;
 }
 
 .statItem {
-  text-align: center;
-  padding: 1rem;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-  border: 1px solid #e9ecef;
+  padding: 15px;
+  background: linear-gradient(to bottom, #f8fbff 0%, #e8f2ff 100%);
+  border: 1px solid #C5D7EF;
+  border-radius: 5px;
 }
 
 .statNumber {
-  font-size: 1.5rem;
+  display: block;
+  font-size: 20px;
   font-weight: bold;
-  color: #3068B3;
-  margin: 0;
+  color: #6d84b4;
+  margin: 0 0 5px 0;
 }
 
 .statLabel {
-  font-size: 0.8rem;
+  font-size: 10px;
   color: #666;
-  margin: 0.25rem 0 0 0;
+  margin: 0;
+  text-transform: lowercase;
 }
 
+/* Informações do perfil */
 .profileInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 8px;
 }
 
 .infoItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
-  background-color: #f8f9fa;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  padding: 8px 10px;
+  background: #f8fbff;
+  border: 1px solid #e8f2ff;
+  border-radius: 3px;
+  font-size: 11px;
 }
 
 .infoLabel {
   font-weight: bold;
-  color: #3068B3;
+  color: #6d84b4;
+  text-transform: lowercase;
 }
 
 .infoValue {
-  color: #666;
+  color: #333;
 }
 
-/* Estilos para o formulário de upload */
+/* Formulário de upload */
 .uploadForm {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-.uploadForm h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1rem;
-  color: #3068B3;
+  gap: 10px;
 }
 
 .fileInputWrapper {
@@ -154,163 +151,176 @@
 
 .fileInputLabel {
   display: block;
-  padding: 0.75rem;
-  background-color: #f8f9fa;
-  border: 2px dashed #C3CDE0;
-  border-radius: 6px;
+  padding: 12px;
+  background: #f8fbff;
+  border: 2px dashed #C5D7EF;
+  border-radius: 5px;
   text-align: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 0.9rem;
+  font-size: 11px;
   color: #666;
 }
 
 .fileInputLabel:hover {
-  background-color: #e9ecef;
-  border-color: #3068B3;
+  background: #e8f2ff;
+  border-color: #6d84b4;
 }
 
 .fileInputLabel.hasFile {
-  background-color: #e8f4f8;
-  border-color: #3068B3;
-  color: #3068B3;
+  background: #e8f2ff;
+  border-color: #6d84b4;
+  color: #6d84b4;
 }
 
 .uploadButton {
-  background-color: #3068B3;
+  background: linear-gradient(to bottom, #6d84b4 0%, #5a6fa8 100%);
   color: white;
-  border: 1px solid #1E4E86;
-  padding: 0.75rem 1rem;
-  border-radius: 4px;
+  border: 1px solid #36538f;
+  padding: 8px 15px;
+  border-radius: 3px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease;
+  font-size: 11px;
+  transition: all 0.2s ease;
+  text-transform: lowercase;
 }
 
 .uploadButton:hover:not(:disabled) {
-  background-color: #2E6AB1;
+  background: linear-gradient(to bottom, #5a6fa8 0%, #4e63a0 100%);
 }
 
 .uploadButton:disabled {
-  background-color: #a0b8d0;
+  background: #a0b8d0;
   cursor: not-allowed;
 }
 
 .uploadError {
   color: #D8000C;
-  font-size: 0.85rem;
-  padding: 0.5rem;
-  background-color: #ffebee;
-  border-radius: 4px;
+  background: #ffebee;
+  padding: 8px;
+  border-radius: 3px;
   border: 1px solid #ffcdd2;
+  font-size: 11px;
+  text-align: center;
 }
 
 .uploadSuccess {
-  color: #2e7d32;
-  font-size: 0.85rem;
-  padding: 0.5rem;
-  background-color: #e8f5e8;
-  border-radius: 4px;
+  color: #4CAF50;
+  background: #e8f5e8;
+  padding: 8px;
+  border-radius: 3px;
   border: 1px solid #c8e6c9;
+  font-size: 11px;
+  text-align: center;
 }
 
-/* Estilos para FriendshipActions */
+/* Ações de amizade */
 .friendshipActions {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  gap: 10px;
+  justify-content: center;
 }
 
 .friendshipButton {
-  background-color: #3068B3;
+  background: linear-gradient(to bottom, #6d84b4 0%, #5a6fa8 100%);
   color: white;
-  border: 1px solid #1E4E86;
-  padding: 0.75rem 1rem;
-  border-radius: 4px;
+  border: 1px solid #36538f;
+  padding: 8px 15px;
+  border-radius: 3px;
   cursor: pointer;
   font-weight: bold;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease;
+  font-size: 11px;
+  transition: all 0.2s ease;
+  text-transform: lowercase;
 }
 
 .friendshipButton:hover:not(:disabled) {
-  background-color: #2E6AB1;
+  background: linear-gradient(to bottom, #5a6fa8 0%, #4e63a0 100%);
 }
 
 .friendshipButton:disabled {
-  background-color: #a0b8d0;
+  background: #a0b8d0;
   cursor: not-allowed;
 }
 
 .friendshipButton.secondary {
-  background-color: #f1f1f1;
-  color: #333;
-  border: 1px solid #ccc;
+  background: linear-gradient(to bottom, #f8fbff 0%, #e8f2ff 100%);
+  color: #6d84b4;
+  border: 1px solid #C5D7EF;
 }
 
 .friendshipButton.secondary:hover:not(:disabled) {
-  background-color: #e5e5e5;
+  background: linear-gradient(to bottom, #e8f2ff 0%, #d0e7ff 100%);
 }
 
 .friendshipButton.danger {
-  background-color: #ffebee;
-  color: #c62828;
-  border: 1px solid #ffcdd2;
+  background: linear-gradient(to bottom, #ff6b6b 0%, #ee5a52 100%);
+  color: white;
+  border: 1px solid #d63031;
 }
 
 .friendshipButton.danger:hover:not(:disabled) {
-  background-color: #ffcdd2;
+  background: linear-gradient(to bottom, #ee5a52 0%, #d63031 100%);
 }
 
 .buttonGroup {
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .buttonGroup .friendshipButton {
   flex: 1;
+  min-width: 120px;
 }
 
+/* Estado vazio */
 .emptyState {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 40px 20px;
   color: #666;
 }
 
 .emptyState .icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 48px;
+  margin-bottom: 15px;
   opacity: 0.3;
 }
 
 .emptyState p {
-  margin: 0 0 0.5rem 0;
-  font-size: 1rem;
+  font-size: 12px;
+  margin: 0 0 5px 0;
+  text-transform: lowercase;
 }
 
 .emptyState small {
+  font-size: 10px;
   color: #999;
-  font-size: 0.85rem;
+  text-transform: lowercase;
 }
 
-/* Responsividade */
+/* Responsivo */
 @media (max-width: 768px) {
-  .profileGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .profilePage {
+    padding: 10px;
   }
   
   .statsGrid {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
   
   .profilePicture {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
   
   .buttonGroup {
     flex-direction: column;
+  }
+  
+  .buttonGroup .friendshipButton {
+    min-width: auto;
   }
 } 

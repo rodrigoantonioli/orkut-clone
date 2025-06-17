@@ -8,12 +8,14 @@ const {
   leaveCommunity,
   getCategories,
   getMyCommunities,
+  getUserCommunities,
 } = require('../controllers/communityController');
 const { protect } = require('../middleware/authMiddleware');
 
 // Rotas que devem vir antes das rotas com parâmetros
 router.get('/categories', getCategories);
 router.get('/my', protect, getMyCommunities);
+router.get('/user/:id', getUserCommunities);
 
 // Rotas principais
 router.route('/')

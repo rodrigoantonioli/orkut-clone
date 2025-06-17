@@ -114,67 +114,75 @@ const ProfilePage = () => {
   const isOwnProfile = currentUser && currentUser._id === profileUser._id;
 
   return (
-    <div className="container">
+    <div className={styles.profilePage}>
       <div className={styles.profileGrid}>
-        {/* Coluna da Esquerda */}
-        <div className={styles.leftColumn}>
-          {/* Foto e Nome */}
-          <div className={styles.profileBox}>
-            <img 
-              src={profileUser.profilePicture || '/uploads/default-avatar.svg'} 
-              alt={`Foto de ${profileUser.name}`} 
-              className={styles.profilePicture} 
-            />
-            <h1 className={styles.profileName}>{profileUser.name}</h1>
-            <p className={styles.profileEmail}>{profileUser.email}</p>
-          </div>
+        {/* Cabeçalho do Perfil */}
+        <div className={styles.profileHeader}>
+          <img 
+            src={profileUser.profilePicture || '/uploads/default-avatar.svg'} 
+            alt={`Foto de ${profileUser.name}`} 
+            className={styles.profilePicture} 
+          />
+          <h1 className={styles.profileName}>{profileUser.name}</h1>
+          <p className={styles.profileEmail}>{profileUser.email}</p>
+        </div>
 
-          {/* Estatísticas */}
-          <div className={styles.infoBox}>
-            <h3>Estatísticas</h3>
+        {/* Estatísticas */}
+        <div className={styles.profileSection}>
+          <div className={styles.sectionHeader}>
+            <h3 className={styles.sectionTitle}>estatísticas</h3>
+          </div>
+          <div className={styles.sectionContent}>
             <div className={styles.statsGrid}>
               <div className={styles.statItem}>
-                <p className={styles.statNumber}>{profileUser.friends?.length || 0}</p>
-                <p className={styles.statLabel}>Amigos</p>
+                <span className={styles.statNumber}>{profileUser.friends?.length || 0}</span>
+                <span className={styles.statLabel}>amigos</span>
               </div>
               <div className={styles.statItem}>
-                <p className={styles.statNumber}>{scraps.length}</p>
-                <p className={styles.statLabel}>Recados</p>
+                <span className={styles.statNumber}>{scraps.length}</span>
+                <span className={styles.statLabel}>recados</span>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Informações do Perfil */}
-          <div className={styles.infoBox}>
-            <h3>Informações</h3>
+        {/* Informações do Perfil */}
+        <div className={styles.profileSection}>
+          <div className={styles.sectionHeader}>
+            <h3 className={styles.sectionTitle}>informações</h3>
+          </div>
+          <div className={styles.sectionContent}>
             <div className={styles.profileInfo}>
               <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Nome:</span>
+                <span className={styles.infoLabel}>nome:</span>
                 <span className={styles.infoValue}>{profileUser.name}</span>
               </div>
               <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Email:</span>
+                <span className={styles.infoLabel}>email:</span>
                 <span className={styles.infoValue}>{profileUser.email}</span>
               </div>
               <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Membro desde:</span>
+                <span className={styles.infoLabel}>membro desde:</span>
                 <span className={styles.infoValue}>{formatDate(profileUser.createdAt)}</span>
               </div>
               <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Status:</span>
+                <span className={styles.infoLabel}>status:</span>
                 <span className={styles.infoValue}>
-                  {profileUser.friends?.some(friend => friend._id === currentUser?._id) ? '👥 Amigo' : '👤 Usuário'}
+                  {profileUser.friends?.some(friend => friend._id === currentUser?._id) ? '👥 amigo' : '👤 usuário'}
                 </span>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Ações de Amizade ou Upload */}
-          {isOwnProfile ? (
-            <div className={styles.infoBox}>
+        {/* Ações de Amizade ou Upload */}
+        {isOwnProfile ? (
+          <div className={styles.profileSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.sectionTitle}>trocar foto do perfil</h3>
+            </div>
+            <div className={styles.sectionContent}>
               <form onSubmit={handleUpload} className={styles.uploadForm}>
-                <h3>Trocar Foto do Perfil</h3>
-                
                 <div className={styles.fileInputWrapper}>
                   <input 
                     type="file" 
@@ -196,29 +204,31 @@ const ProfilePage = () => {
                   disabled={!selectedFile || uploading}
                   className={styles.uploadButton}
                 >
-                  {uploading ? 'Enviando...' : 'Atualizar Foto'}
+                  {uploading ? 'enviando...' : 'atualizar foto'}
                 </button>
                 
                 {uploadError && <div className={styles.uploadError}>{uploadError}</div>}
                 {uploadSuccess && <div className={styles.uploadSuccess}>{uploadSuccess}</div>}
               </form>
             </div>
-          ) : (
-            <div className={styles.infoBox}>
-              <h3>Ações</h3>
+          </div>
+        ) : (
+          <div className={styles.profileSection}>
+            <div className={styles.sectionHeader}>
+              <h3 className={styles.sectionTitle}>ações</h3>
+            </div>
+            <div className={styles.sectionContent}>
               <FriendshipActions profileUser={profileUser} />
             </div>
-          )}
-        </div>
+          </div>
+        )}
 
-        {/* Coluna da Direita */}
-        <div className={styles.rightColumn}>
-          <div className={styles.infoBox}>
-            <h3>
-              Mural de Recados
-              <span className={styles.counter}>({scraps.length})</span>
-            </h3>
-            
+        {/* Mural de Recados */}
+        <div className={styles.profileSection}>
+          <div className={styles.sectionHeader}>
+            <h3 className={styles.sectionTitle}>mural de recados ({scraps.length})</h3>
+          </div>
+          <div className={styles.sectionContent}>
             {scraps.length > 0 ? (
               <ScrapFeed scraps={scraps} />
             ) : (
@@ -226,14 +236,14 @@ const ProfilePage = () => {
                 <div className={styles.icon}>💬</div>
                 <p>
                   {isOwnProfile 
-                    ? 'Você ainda não recebeu recados' 
+                    ? 'você ainda não recebeu recados' 
                     : `${profileUser.name} ainda não recebeu recados`
                   }
                 </p>
                 <small>
                   {isOwnProfile 
-                    ? 'Seus amigos podem deixar recados aqui para você!'
-                    : 'Que tal ser o primeiro a deixar um recado?'
+                    ? 'seus amigos podem deixar recados aqui para você!'
+                    : 'que tal ser o primeiro a deixar um recado?'
                   }
                 </small>
               </div>
