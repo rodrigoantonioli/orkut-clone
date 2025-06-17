@@ -193,9 +193,9 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👨‍💻 Desenvolvido por
 
-Seu Nome - [@seu_twitter](https://twitter.com/seu_twitter) - seu.email@exemplo.com
+Rodrigo Antonioli - rodrigoantonioli@gmail.com
 
-Link do Projeto: [https://github.com/seu-usuario/orkut-clone](https://github.com/seu-usuario/orkut-clone)
+Link do Projeto: [https://github.com/rodrigoantonioli/orkut-clone](https://github.com/rodrigoantonioli/orkut-clone)
 
 ## 🙏 Agradecimentos
 
