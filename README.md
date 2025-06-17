@@ -67,7 +67,19 @@ npm install
 cd ..
 ```
 
-### 5. Executar o projeto
+### 5. Configurar banco de dados
+```bash
+# IMPORTANTE: Configure o banco automaticamente na primeira execução
+# O sistema criará usuários e comunidades padrão automaticamente
+
+# OU execute manualmente para configurar dados de exemplo:
+npm run setup-db
+
+# Para resetar completamente o banco (CUIDADO: apaga todos os dados!):
+npm run reset-db
+```
+
+### 6. Executar o projeto
 ```bash
 # Modo desenvolvimento (backend + frontend)
 npm run dev
@@ -78,6 +90,38 @@ npm run server
 
 # Frontend apenas (em outro terminal)
 npm run client
+```
+
+## 🗄️ Dados Padrão
+
+Quando você executar o projeto pela primeira vez, o sistema criará automaticamente:
+
+### 👥 Usuários de Exemplo
+- **admin@orkut.com** (senha: 123456) - Administrador
+- **joao@exemplo.com** (senha: 123456) - João Silva (Desenvolvedor)
+- **maria@exemplo.com** (senha: 123456) - Maria Santos (Designer)
+- **pedro@exemplo.com** (senha: 123456) - Pedro Oliveira (Músico)
+- **ana@exemplo.com** (senha: 123456) - Ana Costa (Chef)
+
+### 🏘️ Comunidades Padrão
+- **Eu amo programação** (Tecnologia)
+- **Design & Criatividade** (Arte)
+- **Música Brasileira** (Música)
+- **Filmes e Séries** (Entretenimento)
+- **Receitas Deliciosas** (Culinária)
+- **Viagens pelo Brasil** (Viagem)
+- **Gamers Unidos** (Games)
+
+### 📝 Scripts Úteis
+```bash
+# Configurar dados iniciais (se não foi automático)
+npm run setup-db
+
+# Resetar banco completamente (remove TODOS os dados)
+npm run reset-db
+
+# Executar em desenvolvimento
+npm run dev
 ```
 
 ## 🔒 Segurança

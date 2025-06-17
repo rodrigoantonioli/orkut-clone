@@ -7,6 +7,8 @@
     "server": "node src/index.js",
     "client": "npm run dev --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "setup-db": "node scripts/setup-database.js",
+    "reset-db": "node scripts/setup-database.js --reset",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
