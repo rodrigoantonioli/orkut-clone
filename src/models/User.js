@@ -50,7 +50,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // Índices para melhorar performance
-userSchema.index({ email: 1 });
+// Nota: email já tem índice único automático por causa de unique: true
 userSchema.index({ name: 'text' }); // Índice de texto para busca
 userSchema.index({ friends: 1 });
 userSchema.index({ createdAt: -1 });
