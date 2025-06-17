@@ -41,6 +41,9 @@ const setupDatabase = async () => {
     console.log('- maria@exemplo.com (senha: 123456)');
     console.log('- pedro@exemplo.com (senha: 123456)');
     console.log('- ana@exemplo.com (senha: 123456)');
+    console.log('- carlos@exemplo.com (senha: 123456)');
+    console.log('- fernanda@exemplo.com (senha: 123456)');
+    console.log('- ricardo@exemplo.com (senha: 123456)');
     
   } catch (error) {
     console.error('❌ Erro:', error.message);
@@ -94,11 +97,75 @@ const createUsers = async () => {
       bio: 'Chef de cozinha e food blogger. Compartilho receitas deliciosas e dicas culinárias.',
       location: 'Porto Alegre, RS',
       interests: ['Culinária', 'Gastronomia', 'Viagem', 'Fotografia']
+    },
+    {
+      name: 'Carlos Mendes',
+      email: 'carlos@exemplo.com',
+      password: await bcrypt.hash('123456', 10),
+      bio: 'Fotógrafo profissional e amante da natureza. Capturo momentos únicos pelo Brasil.',
+      location: 'Florianópolis, SC',
+      interests: ['Fotografia', 'Natureza', 'Viagem', 'Aventura']
+    },
+    {
+      name: 'Fernanda Lima',
+      email: 'fernanda@exemplo.com',
+      password: await bcrypt.hash('123456', 10),
+      bio: 'Professora de educação física e personal trainer. Vida saudável é minha paixão!',
+      location: 'Brasília, DF',
+      interests: ['Fitness', 'Saúde', 'Esportes', 'Bem-estar']
+    },
+    {
+      name: 'Ricardo Santos',
+      email: 'ricardo@exemplo.com',
+      password: await bcrypt.hash('123456', 10),
+      bio: 'Empreendedor digital e entusiasta de startups. Sempre conectado com inovação.',
+      location: 'Recife, PE',
+      interests: ['Empreendedorismo', 'Tecnologia', 'Inovação', 'Negócios']
     }
   ];
 
   const createdUsers = await User.insertMany(users);
   console.log(`✅ ${createdUsers.length} usuários criados`);
+  
+  // Criar algumas amizades
+  console.log('🤝 Criando amizades...');
+  
+  // João é amigo de Maria, Pedro e Ana
+  await User.findByIdAndUpdate(createdUsers[1]._id, {
+    $push: { friends: [createdUsers[2]._id, createdUsers[3]._id, createdUsers[4]._id] }
+  });
+  
+  // Maria é amiga de João, Ana e Carlos
+  await User.findByIdAndUpdate(createdUsers[2]._id, {
+    $push: { friends: [createdUsers[1]._id, createdUsers[4]._id, createdUsers[5]._id] }
+  });
+  
+  // Pedro é amigo de João e Fernanda
+  await User.findByIdAndUpdate(createdUsers[3]._id, {
+    $push: { friends: [createdUsers[1]._id, createdUsers[6]._id] }
+  });
+  
+  // Ana é amiga de João, Maria e Ricardo
+  await User.findByIdAndUpdate(createdUsers[4]._id, {
+    $push: { friends: [createdUsers[1]._id, createdUsers[2]._id, createdUsers[7]._id] }
+  });
+  
+  // Carlos é amigo de Maria e Fernanda
+  await User.findByIdAndUpdate(createdUsers[5]._id, {
+    $push: { friends: [createdUsers[2]._id, createdUsers[6]._id] }
+  });
+  
+  // Fernanda é amiga de Pedro e Carlos
+  await User.findByIdAndUpdate(createdUsers[6]._id, {
+    $push: { friends: [createdUsers[3]._id, createdUsers[5]._id] }
+  });
+  
+  // Ricardo é amigo de Ana
+  await User.findByIdAndUpdate(createdUsers[7]._id, {
+    $push: { friends: [createdUsers[4]._id] }
+  });
+  
+  console.log('✅ Amizades criadas');
   
   return createdUsers;
 };
@@ -144,17 +211,17 @@ const createCommunities = async () => {
       memberCount: 1,
       isPrivate: false
     },
-         {
-       name: 'Filmes e Séries',
-       description: 'Discussões sobre cinema, séries, documentários e entretenimento em geral.',
-       category: 'Filmes',
-       tags: ['filmes', 'séries', 'cinema', 'netflix', 'entretenimento'],
-       rules: 'Evite spoilers sem aviso prévio. Use tags de spoiler quando necessário.',
-       creator: admin._id,
-       members: [admin._id],
-       memberCount: 1,
-       isPrivate: false
-     },
+    {
+      name: 'Filmes e Séries',
+      description: 'Discussões sobre cinema, séries, documentários e entretenimento em geral.',
+      category: 'Filmes',
+      tags: ['filmes', 'séries', 'cinema', 'netflix', 'entretenimento'],
+      rules: 'Evite spoilers sem aviso prévio. Use tags de spoiler quando necessário.',
+      creator: admin._id,
+      members: [admin._id],
+      memberCount: 1,
+      isPrivate: false
+    },
     {
       name: 'Receitas Deliciosas',
       description: 'Compartilhe e descubra receitas incríveis, dicas culinárias e experiências gastronômicas.',
@@ -177,21 +244,63 @@ const createCommunities = async () => {
       memberCount: 1,
       isPrivate: false
     },
-         {
-       name: 'Gamers Unidos',
-       description: 'Comunidade para gamers de todos os tipos: PC, console, mobile e retro gaming.',
-       category: 'Jogos',
-       tags: ['games', 'gaming', 'pc', 'console', 'mobile'],
-       rules: 'Respeite todos os tipos de jogadores e plataformas. Sem toxicidade.',
-       creator: joao._id,
-       members: [joao._id, admin._id],
-       memberCount: 2,
-       isPrivate: false
-     }
+    {
+      name: 'Gamers Unidos',
+      description: 'Comunidade para gamers de todos os tipos: PC, console, mobile e retro gaming.',
+      category: 'Jogos',
+      tags: ['games', 'gaming', 'pc', 'console', 'mobile'],
+      rules: 'Respeite todos os tipos de jogadores e plataformas. Sem toxicidade.',
+      creator: joao._id,
+      members: [joao._id, admin._id],
+      memberCount: 2,
+      isPrivate: false
+    }
   ];
 
   const createdCommunities = await Community.insertMany(communities);
   console.log(`✅ ${createdCommunities.length} comunidades criadas`);
+  
+  // Agora atualizar os usuários com suas comunidades
+  console.log('🔄 Atualizando usuários com suas comunidades...');
+  
+  try {
+    // Atualizar admin com suas comunidades
+    const adminCommunities = createdCommunities.filter(c => 
+      c.members.some(m => m.toString() === admin._id.toString())
+    ).map(c => c._id);
+    
+    if (adminCommunities.length > 0) {
+      await User.findByIdAndUpdate(admin._id, {
+        $set: { communities: adminCommunities }
+      });
+    }
+    
+    // Atualizar João com suas comunidades
+    const joaoCommunities = createdCommunities.filter(c => 
+      c.members.some(m => m.toString() === joao._id.toString())
+    ).map(c => c._id);
+    
+    if (joaoCommunities.length > 0) {
+      await User.findByIdAndUpdate(joao._id, {
+        $set: { communities: joaoCommunities }
+      });
+    }
+    
+    // Atualizar Maria com suas comunidades
+    const mariaCommunities = createdCommunities.filter(c => 
+      c.members.some(m => m.toString() === maria._id.toString())
+    ).map(c => c._id);
+    
+    if (mariaCommunities.length > 0) {
+      await User.findByIdAndUpdate(maria._id, {
+        $set: { communities: mariaCommunities }
+      });
+    }
+    
+    console.log(`✅ Usuários atualizados com suas comunidades`);
+  } catch (error) {
+    console.error('⚠️ Erro ao atualizar usuários:', error.message);
+  }
   
   return createdCommunities;
 };

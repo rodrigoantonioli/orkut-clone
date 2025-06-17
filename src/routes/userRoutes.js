@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { getUserProfile, searchUsers, getUserStats } = require('../controllers/userController');
+const { getUserProfile, searchUsers, getUserStats, getAllUsers } = require('../controllers/userController');
 const { protect } = require('../middleware/authMiddleware');
+
+// Rota pública para listar todos os usuários (deve vir antes das outras)
+router.get('/', getAllUsers);
 
 // Rota protegida para buscar usuários (deve vir antes da rota /:id)
 router.get('/search', protect, searchUsers);

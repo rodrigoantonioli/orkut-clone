@@ -92,8 +92,25 @@ const getUserStats = async (req, res) => {
   }
 };
 
+// @desc    Listar todos os usuários (para estatísticas)
+// @route   GET /api/users
+// @access  Public
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find()
+      .select('name email profilePicture createdAt')
+      .sort({ createdAt: -1 });
+
+    res.json({ users, total: users.length });
+  } catch (error) {
+    console.error('Erro ao listar usuários:', error);
+    res.status(500).json({ message: 'Erro no servidor', error: error.message });
+  }
+};
+
 module.exports = {
   getUserProfile,
   searchUsers,
   getUserStats,
+  getAllUsers,
 }; 
