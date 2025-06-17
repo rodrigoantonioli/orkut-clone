@@ -1,0 +1,60 @@
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.scrap {
+    background-color: #FFFFFF;
+    border: 1px solid #C3CDE0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #E8EEF7;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid #C3CDE0;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.author a {
+    color: #154284;
+    text-decoration: none;
+}
+
+.author a:hover {
+    text-decoration: underline;
+}
+
+.body {
+    padding: 1rem;
+}
+
+.content {
+    margin: 0;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.timestamp {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 1rem;
+    text-align: right;
+} 

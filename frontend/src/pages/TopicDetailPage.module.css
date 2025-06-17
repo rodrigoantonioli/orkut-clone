@@ -1,0 +1,92 @@
+.postList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.postBox {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1.5rem;
+  background-color: white;
+  border: 1px solid #C3CDE0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.authorInfo {
+  text-align: center;
+}
+
+.authorInfo a {
+  text-decoration: none;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.authorName {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #154284;
+}
+
+.postContent {
+  border-left: 1px solid #E8EEF7;
+  padding-left: 1.5rem;
+}
+
+.postBody {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  white-space: pre-wrap; /* Preserva quebras de linha e espaços */
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.replyBox {
+  background-color: white;
+  border: 1px solid #C3CDE0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.replyBox h3 {
+  font-size: 1.1rem;
+  color: #3068B3;
+  margin: 0 0 1rem 0;
+}
+
+.replyForm textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border: 1px solid #C3CDE0;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  resize: vertical;
+}
+
+.replyForm button {
+  background-color: #3068B3;
+  color: white;
+  border: 1px solid #1E4E86;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 1rem;
+} 

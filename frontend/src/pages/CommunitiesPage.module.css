@@ -1,0 +1,423 @@
+.pageGrid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.infoBox {
+  background-color: white;
+  border: 1px solid #C3CDE0;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.infoBox h2, .infoBox h3 {
+  font-size: 1.1rem;
+  color: #3068B3;
+  margin: 0 0 1rem 0;
+  font-weight: bold;
+  border-bottom: 1px solid #E8EEF7;
+  padding-bottom: 0.75rem;
+}
+
+/* Header com filtros */
+.header {
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  color: #3068B3;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.searchBox {
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #C3CDE0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3068B3;
+  box-shadow: 0 0 0 3px rgba(48, 104, 179, 0.1);
+}
+
+.select {
+  padding: 0.75rem;
+  border: 2px solid #C3CDE0;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #3068B3;
+}
+
+/* Estados de loading e erro */
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.loading {
+  color: #666;
+  background-color: #f8f9fa;
+}
+
+.error {
+  color: #D8000C;
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+
+.emptyState p {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.emptyState small {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* Grid de comunidades */
+.communityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.communityCard {
+  border: 1px solid #E8EEF7;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  background-color: #fafafa;
+}
+
+.communityCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: #3068B3;
+}
+
+.communityLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.communityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.communityIcon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E8EEF7;
+  border-radius: 8px;
+}
+
+.categoryBadge {
+  background-color: #3068B3;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.communityName {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #154284;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+}
+
+.communityDescription {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0 0 1rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.communityStats {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.communityFooter {
+  border-top: 1px solid #E8EEF7;
+  padding-top: 0.75rem;
+}
+
+.creator {
+  font-size: 0.8rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* Paginação */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.pageButton {
+  background-color: #3068B3;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.pageButton:hover:not(:disabled) {
+  background-color: #2E6AB1;
+}
+
+.pageButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Minhas Comunidades */
+.myCommunitiesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.myCommunitiesList li {
+  margin-bottom: 0.5rem;
+}
+
+.myCommunitiesList a {
+  color: #154284;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.myCommunitiesList a:hover {
+  background-color: #f0f4f8;
+  text-decoration: none;
+}
+
+/* Formulário de criação */
+.createButton {
+  width: 100%;
+  background-color: #3068B3;
+  color: white;
+  border: 1px solid #1E4E86;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.createButton:hover {
+  background-color: #2E6AB1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #C3CDE0;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: #3068B3;
+  box-shadow: 0 0 0 3px rgba(48, 104, 179, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.checkbox input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+.formError {
+  color: #D8000C;
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  background-color: #ffebee;
+  border-radius: 4px;
+  border: 1px solid #ffcdd2;
+}
+
+.formButtons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.cancelButton, .submitButton {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.cancelButton {
+  background-color: #f1f1f1;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.cancelButton:hover {
+  background-color: #e5e5e5;
+}
+
+.submitButton {
+  background-color: #3068B3;
+  color: white;
+  border: 1px solid #1E4E86;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #2E6AB1;
+}
+
+.submitButton:disabled {
+  background-color: #a0b8d0;
+  cursor: not-allowed;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .pageGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .filters {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .communityGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .pagination {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .formButtons {
+    flex-direction: column;
+  }
+} 
