@@ -3,6 +3,7 @@ import ScrapForm from '../components/ScrapForm';
 import ScrapFeed from '../components/ScrapFeed';
 import UserSearch from '../components/UserSearch';
 import { useAuth } from '../context/AuthContext';
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
   const { user } = useAuth();
@@ -36,76 +37,82 @@ const HomePage = () => {
 
   const getGreeting = () => {
     const hour = new Date().getHours();
-    if (hour < 12) return 'Bom dia';
-    if (hour < 18) return 'Boa tarde';
-    return 'Boa noite';
+    if (hour < 12) return 'bom dia';
+    if (hour < 18) return 'boa tarde';
+    return 'boa noite';
+  };
+
+  const formatDate = () => {
+    return new Date().toLocaleDateString('pt-BR', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
   };
 
   return (
-    <div className="container">
-      <div style={{ marginBottom: '2rem' }}>
-        <h2>Página Inicial</h2>
-        <p style={{ fontSize: '1.1rem', color: '#666', marginBottom: '1.5rem' }}>
-          {getGreeting()}, <strong>{user?.name}</strong>! 👋 
-          Bem-vindo(a) de volta ao seu Orkut.
+    <div className={styles.homePage}>
+      {/* Header da página */}
+      <div className={styles.pageHeader}>
+        <h2 className={styles.pageTitle}>
+          Bem-vindo(a), {user?.name}
+        </h2>
+        <p className={styles.dateInfo}>
+          {getGreeting()} · {formatDate()}
         </p>
       </div>
 
-      {/* Busca de Usuários */}
-      <UserSearch />
+      {/* Seção de Busca */}
+      <div className={styles.searchSection}>
+        <div className={styles.sectionHeader}>
+          <h3 className={styles.sectionTitle}>buscar pessoas</h3>
+        </div>
+        <div className={styles.sectionContent}>
+          <UserSearch />
+        </div>
+      </div>
 
-      {/* Formulário de Recado */}
-      <ScrapForm onScrapPosted={handleScrapPosted} />
+      {/* Seção de Recados */}
+      <div className={styles.scrapsSection}>
+        <div className={styles.sectionHeader}>
+          <h3 className={styles.sectionTitle}>recados</h3>
+        </div>
+        <div className={styles.sectionContent}>
+          <ScrapForm onScrapPosted={handleScrapPosted} />
+        </div>
+      </div>
 
       {/* Feed de Recados */}
-      <div style={{ marginTop: '2rem' }}>
-        <h3 style={{ color: '#3068B3', marginBottom: '1rem' }}>
-          Últimos Recados da Rede
-        </h3>
-        
-        {loading && (
-          <div style={{ 
-            textAlign: 'center', 
-            padding: '2rem', 
-            color: '#666' 
-          }}>
-            Carregando recados...
-          </div>
-        )}
-        
-        {error && (
-          <div style={{ 
-            color: '#D8000C', 
-            backgroundColor: '#ffebee',
-            padding: '1rem',
-            borderRadius: '4px',
-            border: '1px solid #ffcdd2',
-            marginBottom: '1rem'
-          }}>
-            {error}
-          </div>
-        )}
-        
-        {!loading && !error && scraps.length === 0 && (
-          <div style={{
-            textAlign: 'center',
-            padding: '3rem',
-            color: '#666',
-            backgroundColor: '#f8f9fa',
-            borderRadius: '8px',
-            border: '1px solid #e9ecef'
-          }}>
-            <div style={{ fontSize: '3rem', marginBottom: '1rem', opacity: 0.3 }}>
-              💬
+      <div className={styles.feedSection}>
+        <div className={styles.sectionHeader}>
+          <h3 className={styles.sectionTitle}>últimos recados da rede</h3>
+        </div>
+        <div className={styles.sectionContent}>
+          {loading && (
+            <div className={styles.loadingMessage}>
+              carregando recados...
             </div>
-            <p>Ainda não há recados na rede.</p>
-            <small>Que tal ser o primeiro a deixar um recado?</small>
-          </div>
-        )}
-        
-        {!loading && !error && scraps.length > 0 && (
-          <ScrapFeed scraps={scraps} />
-        )}
+          )}
+          
+          {error && (
+            <div className={styles.errorMessage}>
+              {error}
+            </div>
+          )}
+          
+          {!loading && !error && scraps.length === 0 && (
+            <div className={styles.emptyState}>
+              <div className={styles.emptyIcon}>💬</div>
+              <p>ainda não há recados na rede.</p>
+              <small>que tal ser o primeiro a deixar um recado?</small>
+            </div>
+          )}
+          
+          {!loading && !error && scraps.length > 0 && (
+            <ScrapFeed scraps={scraps} />
+          )}
+        </div>
       </div>
     </div>
   );

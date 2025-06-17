@@ -1,30 +1,35 @@
+/* Reset e base */
 .wrapper {
     min-height: 100vh;
     background-color: #DDE9F5;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 11px;
 }
 
+/* Header estilo Orkut original */
 .header {
-    background-color: #2E6AB1;
-    padding: 0 1rem;
-    border-bottom: 2px solid #333;
+    background: linear-gradient(to bottom, #6d84b4 0%, #5a6fa8 50%, #4e63a0 100%);
+    border-bottom: 1px solid #36538f;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .headerContent {
-    max-width: 980px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px;
+    height: 50px;
+    padding: 0 10px;
 }
 
 .logo {
     color: white;
-    font-family: "Calibri", "Candara", "Segoe", "Segoe UI", "Optima", "Arial", sans-serif;
-    font-size: 2.5rem;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 24px;
     margin: 0;
-    font-weight: 100;
-    padding-bottom: 8px; /* Ajuste para alinhar a fonte */
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .logoLink {
@@ -34,24 +39,23 @@
 .navAndUser {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 15px;
 }
 
 .nav {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    border-right: 1px solid #5C8BC3;
-    padding-right: 2rem;
+    gap: 8px;
 }
 
 .navLink {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 3px;
     transition: background-color 0.2s ease;
+    text-transform: lowercase;
 }
 
 .navLink:hover {
@@ -59,38 +63,40 @@
     text-decoration: none;
 }
 
-/* Estilo para o link da página ativa */
 .navLink.active {
     background-color: rgba(0, 0, 0, 0.2);
+    font-weight: bold;
 }
 
 .userInfo {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 8px;
+    border-left: 1px solid rgba(255,255,255,0.3);
+    padding-left: 15px;
 }
 
-.userName {
+.welcomeText {
     color: white;
-    font-size: 0.9rem;
+    font-size: 11px;
 }
 
 .navAvatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
     object-fit: cover;
     border: 1px solid white;
-    display: block;
 }
 
 .logoutButton {
     background: none;
     border: none;
     color: #C3D9F0;
-    font-size: 0.8rem;
+    font-size: 11px;
     cursor: pointer;
     padding: 0;
+    text-transform: lowercase;
 }
 
 .logoutButton:hover {
@@ -98,8 +104,254 @@
     text-decoration: underline;
 }
 
+/* Layout de 3 colunas estilo Orkut */
+.orkutLayout {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    gap: 10px;
+    padding: 10px;
+    min-height: calc(100vh - 50px);
+}
+
+/* Sidebar Esquerda */
+.leftSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebarBox {
+    background: white;
+    border: 1px solid #C5D7EF;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.userProfile {
+    padding: 15px;
+    text-align: center;
+    background: linear-gradient(to bottom, #f8fbff 0%, #e8f2ff 100%);
+    border-bottom: 1px solid #C5D7EF;
+}
+
+.sidebarAvatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 3px;
+    object-fit: cover;
+    border: 2px solid #C5D7EF;
+    margin-bottom: 8px;
+}
+
+.sidebarUserName {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.profileStats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statNumber {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #6d84b4;
+    margin: 0;
+}
+
+.statLabel {
+    font-size: 10px;
+    color: #666;
+    margin: 0;
+}
+
+.sidebarNav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebarLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 11px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+.sidebarLink:hover {
+    background-color: #f8fbff;
+    text-decoration: none;
+}
+
+.sidebarLink:global(.active) {
+    background-color: #e8f2ff;
+    font-weight: bold;
+    color: #6d84b4;
+}
+
+.linkIcon {
+    font-size: 12px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #C5D7EF;
+    margin: 5px 0;
+}
+
+/* Conteúdo Principal */
 .mainContent {
-    max-width: 980px;
-    margin: 0 auto; /* Remove o margin-top para ficar colado no header */
-    padding: 2rem 1rem;
+    background: white;
+    border: 1px solid #C5D7EF;
+    border-radius: 5px;
+    min-height: 500px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Sidebar Direita */
+.rightSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebarTitle {
+    background: linear-gradient(to bottom, #6d84b4 0%, #5a6fa8 100%);
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 8px 12px;
+    margin: 0;
+    text-transform: lowercase;
+}
+
+.friendsList {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.friendItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #333;
+    padding: 4px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.friendItem:hover {
+    background-color: #f8fbff;
+    text-decoration: none;
+}
+
+.friendAvatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    object-fit: cover;
+    border: 1px solid #C5D7EF;
+}
+
+.friendName {
+    font-size: 11px;
+    color: #333;
+}
+
+.communitiesList {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.communityItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #333;
+    padding: 4px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.communityItem:hover {
+    background-color: #f8fbff;
+    text-decoration: none;
+}
+
+.communityIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    object-fit: cover;
+    border: 1px solid #C5D7EF;
+}
+
+.communityName {
+    font-size: 11px;
+    color: #333;
+}
+
+.viewAllLink {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    background-color: #f8fbff;
+    color: #6d84b4;
+    text-decoration: none;
+    font-size: 11px;
+    border-top: 1px solid #C5D7EF;
+    transition: background-color 0.2s ease;
+}
+
+.viewAllLink:hover {
+    background-color: #e8f2ff;
+    text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+    .orkutLayout {
+        max-width: 100%;
+        grid-template-columns: 180px 1fr 180px;
+        gap: 8px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .orkutLayout {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .leftSidebar,
+    .rightSidebar {
+        display: none;
+    }
+    
+    .mainContent {
+        margin: 0;
+    }
 } 

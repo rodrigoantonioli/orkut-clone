@@ -1,0 +1,112 @@
+.homePage {
+  padding: 15px;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 11px;
+}
+
+.pageHeader {
+  background: white;
+  border: 1px solid #C5D7EF;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.pageTitle {
+  color: #6d84b4;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  text-transform: lowercase;
+}
+
+.dateInfo {
+  color: #666;
+  font-size: 11px;
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.searchSection,
+.scrapsSection,
+.feedSection {
+  background: white;
+  border: 1px solid #C5D7EF;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.sectionHeader {
+  background: linear-gradient(to bottom, #6d84b4 0%, #5a6fa8 100%);
+  padding: 8px 12px;
+  border-bottom: 1px solid #C5D7EF;
+}
+
+.sectionTitle {
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  margin: 0;
+  text-transform: lowercase;
+}
+
+.sectionContent {
+  padding: 15px;
+}
+
+.loadingMessage {
+  text-align: center;
+  padding: 30px;
+  color: #666;
+  font-size: 11px;
+  text-transform: lowercase;
+}
+
+.errorMessage {
+  color: #D8000C;
+  background-color: #ffebee;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #ffcdd2;
+  font-size: 11px;
+  text-align: center;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.emptyIcon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  opacity: 0.3;
+}
+
+.emptyState p {
+  font-size: 12px;
+  margin: 0 0 5px 0;
+  text-transform: lowercase;
+}
+
+.emptyState small {
+  font-size: 10px;
+  color: #999;
+  text-transform: lowercase;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .homePage {
+    padding: 10px;
+  }
+  
+  .pageHeader,
+  .sectionContent {
+    padding: 12px;
+  }
+} 
